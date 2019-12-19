@@ -1,0 +1,31 @@
+From 572538753601755b4b6acace1d445bc8e1cc10c8 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Petr=20P=C3=ADsa=C5=99?= <ppisar@redhat.com>
+Date: Thu, 16 Feb 2017 14:00:57 +0100
+Subject: [PATCH] Accept proxy URLs with IPv6 host names
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<https://rt.cpan.org/Public/Bug/Display.html?id=94654>
+
+Signed-off-by: Petr Písař <ppisar@redhat.com>
+---
+ lib/LWP/UserAgent.pm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/LWP/UserAgent.pm b/lib/LWP/UserAgent.pm
+index ea03157..8549808 100644
+--- a/lib/LWP/UserAgent.pm
++++ b/lib/LWP/UserAgent.pm
+@@ -1039,7 +1039,7 @@ sub proxy
+         my $url = shift;
+         if (defined($url) && length($url)) {
+             Carp::croak("Proxy must be specified as absolute URI; '$url' is not") unless $url =~ /^$URI::scheme_re:/;
+-            Carp::croak("Bad http proxy specification '$url'") if $url =~ /^https?:/ && $url !~ m,^https?://\w,;
++            Carp::croak("Bad http proxy specification '$url'") if $url =~ /^https?:/ && $url !~ m,^https?://(?:\w|\[),;
+         }
+         $self->{proxy}{$key} = $url;
+         $self->set_my_handler("request_preprepare", \&_need_proxy)
+-- 
+2.7.4
+
