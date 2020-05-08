@@ -1,0 +1,4 @@
+version_control: metacpan
+src_repo: libwww-perl
+tag_prefix: "^v"
+seperator: "."
