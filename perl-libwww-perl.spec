@@ -1,13 +1,12 @@
 %global __requires_exclude %{?__requires_exclude:%{__requires_exclude}|}^perl\\((Authen::NTLM|Encode|File::Listing|HTTP::Date|HTTP::Negotiate|HTTP::Request|HTTP::Response|HTTP::Status|LWP::MediaTypes|MIME::Base64|Net::FTP|Net::HTTP|URI|WWW::RobotRules)\\)$
 
 Name:           perl-libwww-perl
-Version:        6.35
-Release:        2
+Version:        6.46
+Release:        1
 Summary:        The World-Wide Web library for Perl
 License:        GPL+ or Artistic
 URL:            https://metacpan.org/release/libwww-perl
-Source0:        https://cpan.metacpan.org/authors/id/E/ET/ETHER/libwww-perl-%{version}.tar.gz
-Patch0000:      libwww-perl-6.19-Accept-proxy-URLs-with-IPv6-host-names.patch
+Source0:        https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  perl-generators perl-interpreter perl(:VERSION) >= 5.8.1
@@ -83,5 +82,8 @@ make test
 %{_mandir}/man3/
 
 %changelog
+* Mon Aug 24 2020 dingyue <dingyue5@huawei.com> - 6.46-1
+- Bump to version 6.46
+
 * Thu Oct 24 2019 Zaiwang Li <lizaiwang1@huawei.com> - 6.35-2
 - Init package.
