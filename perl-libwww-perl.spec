@@ -1,7 +1,7 @@
 %global __requires_exclude %{?__requires_exclude:%{__requires_exclude}|}^perl\\((Authen::NTLM|Encode|File::Listing|HTTP::Date|HTTP::Negotiate|HTTP::Request|HTTP::Response|HTTP::Status|LWP::MediaTypes|MIME::Base64|Net::FTP|Net::HTTP|URI|WWW::RobotRules)\\)$
 
 Name:           perl-libwww-perl
-Version:        6.46
+Version:        6.51
 Release:        1
 Summary:        The World-Wide Web library for Perl
 License:        GPL+ or Artistic
@@ -22,7 +22,8 @@ BuildRequires:  perl(Scalar::Util) perl(Try::Tiny) perl(URI) >= 1.10 perl(URI::E
 BuildRequires:  perl(WWW::RobotRules) >= 6 perl(Config) perl(File::Spec)
 BuildRequires:  perl(File::Temp) perl(FindBin) perl(HTTP::Daemon) >= 6
 BuildRequires:  perl(Test::Fatal) perl(Test::More) perl(Test::RequiresInternet)
-BuildRequires:  perl(utf8) perl(Test::Needs)
+BuildRequires:  perl(utf8) perl(Test::Needs) perl(Test::LeakTrace)
+BuildRequires:  perl(File::Listing) >= 6 perl(HTTP::Cookies) >= 6 perl(HTTP::Negotiate) >= 6
 
 BuildConflicts: perl(HTTP::Status) = 6.17
 
@@ -34,7 +35,8 @@ Requires:       perl(HTTP::Request) >= 6 perl(HTTP::Request::Common) >= 6 perl(H
 Requires:       perl(HTTP::Status) >= 6 perl(LWP::MediaTypes) >= 6 perl(MIME::Base64) >= 2.1
 Requires:       perl(Net::FTP) >= 2.58 perl(Net::HTTP) >= 6.07 perl(URI) >= 1.10
 Requires:       perl(URI::Escape) perl(WWW::RobotRules) >= 6
-
+Requires:       perl(File::Listing) >= 6 perl(HTTP::Cookies) >= 6 perl(HTTP::Negotiate) >= 6
+ 
 Suggests:       perl(CPAN::Config) perl(HTML::FormatPS) perl(HTML::FormatText)
 Suggests:       perl(HTML::Parse) perl(LWP::Protocol::https) >= 6.02
 
@@ -82,6 +84,9 @@ make test
 %{_mandir}/man3/
 
 %changelog
+* Fri Jan 29 2021 yuanxin <yuanxin24@huawei.com> - 6.51-1
+- upgrade version to 6.51
+
 * Wed Jul 29 2020 shixuantong <shixuantong@huawei.com> - 6.46-1
 - update to 6.46-1
 
