@@ -1,7 +1,7 @@
 %global __requires_exclude %{?__requires_exclude:%{__requires_exclude}|}^perl\\((Authen::NTLM|Encode|File::Listing|HTTP::Date|HTTP::Negotiate|HTTP::Request|HTTP::Response|HTTP::Status|LWP::MediaTypes|MIME::Base64|Net::FTP|Net::HTTP|URI|WWW::RobotRules)\\)$
 
 Name:           perl-libwww-perl
-Version:        6.58
+Version:        6.66
 Release:        1
 Summary:        The World-Wide Web library for Perl
 License:        GPL+ or Artistic
@@ -84,6 +84,9 @@ make test
 %{_mandir}/man3/
 
 %changelog
+* Tue Jun 14 2022 SimpleUpdate Robot <tc@openeuler.org> - 6.66-1
+- Upgrade to version 6.66
+
 * Mon Dec  6 2021 guozhaorui <guozhaorui1@huawei.com> - 6.58-1
 - update version to 6.58
 
